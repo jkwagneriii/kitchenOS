@@ -10,7 +10,7 @@ export default function ColorSwatch({ name, hex, rgb, usage }) {
   }
 
   return (
-    <div className="animate-on-scroll group">
+    <div className="animate-on-scroll group flex flex-col h-full">
       <div
         className="w-full aspect-[4/3] mb-4 border border-white/10"
         style={{ backgroundColor: hex }}
@@ -21,12 +21,14 @@ export default function ColorSwatch({ name, hex, rgb, usage }) {
         {rgb && <p>{rgb}</p>}
         {usage && <p className="text-white/25 mt-2">{usage}</p>}
       </div>
-      <button
-        onClick={handleCopy}
-        className="mt-3 font-mono text-mono-sm uppercase tracking-widest text-faint hover:text-accent transition-colors duration-300 cursor-pointer"
-      >
-        {copied ? 'Copied!' : 'Copy Hex'}
-      </button>
+      <div className="mt-auto pt-4">
+        <button
+          onClick={handleCopy}
+          className="font-mono text-mono-sm uppercase tracking-widest px-4 py-2 border border-white/10 text-faint hover:border-accent hover:text-accent transition-colors duration-300 cursor-pointer"
+        >
+          {copied ? 'Copied!' : 'Copy Hex'}
+        </button>
+      </div>
     </div>
   )
 }
