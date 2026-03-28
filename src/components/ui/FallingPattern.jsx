@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 
 export function FallingPattern({
-  color = '#DBD4C9',
-  backgroundColor = '#455602',
+  color = 'rgba(255,255,255,0.25)',
+  backgroundColor = '#4b3fff',
   duration = 150,
   blurIntensity = '1em',
   density = 1,

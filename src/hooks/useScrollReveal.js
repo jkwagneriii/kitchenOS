@@ -24,7 +24,7 @@ export function useScrollReveal(threshold = 0.1) {
   return ref
 }
 
-export function useScrollRevealAll() {
+export function useScrollRevealAll(pathname) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,7 +38,11 @@ export function useScrollRevealAll() {
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     )
 
-    document.querySelectorAll('.animate-on-scroll, .img-reveal-left, .img-reveal-center').forEach((el) => observer.observe(el))
+    const elements = document.querySelectorAll('.animate-on-scroll, .img-reveal-left, .img-reveal-center')
+    elements.forEach((el) => {
+      el.classList.remove('is-visible')
+      observer.observe(el)
+    })
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
 }

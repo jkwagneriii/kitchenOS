@@ -5,35 +5,38 @@ export default {
     extend: {
       /* ── COLOR SYSTEM ────────────────────────────────────── */
       colors: {
-        surface: {
-          DEFAULT: '#DBD4C9',   /* Bone */
-          light:   '#D0AC9C',   /* Desert Sand */
+        background: {
+          DEFAULT: '#212121',
         },
-        mineral: {
-          DEFAULT: '#455602',   /* Olive Leaf */
+        surface: {
+          DEFAULT: '#31414e',
         },
         accent: {
-          DEFAULT: '#B39B75',   /* Camel */
+          DEFAULT: '#4b3fff',
         },
-        ink: {
-          DEFAULT: '#2A2A22',
-          muted:   '#5C5647',
-          faint:   '#8A8374',
+        foreground: {
+          DEFAULT: '#ffffff',
+        },
+        muted: {
+          DEFAULT: '#dce6f4',
+        },
+        faint: {
+          DEFAULT: '#7a8ba0',
         },
       },
       fontFamily: {
-        sans:  ['Inter', 'system-ui', 'sans-serif'],
-        mono:  ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        sans:  ['"DM Sans"', 'system-ui', 'sans-serif'],
+        mono:  ['"DM Mono"', 'ui-monospace', 'monospace'],
       },
       fontSize: {
-        'mega':    ['clamp(4rem, 12vw, 12rem)',   { lineHeight: '0.95',  letterSpacing: '-0.05em', fontWeight: '800' }],
-        'hero':    ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '0.9', letterSpacing: '-0.04em', fontWeight: '700' }],
-        'display': ['clamp(2rem, 3.5vw, 3rem)',   { lineHeight: '1.1',  letterSpacing: '-0.025em', fontWeight: '700' }],
-        'title':   ['clamp(1.25rem, 2vw, 1.75rem)',{ lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'body':    ['1rem',                         { lineHeight: '1.6',  fontWeight: '400' }],
-        'mono-body': ['0.6875rem',                  { lineHeight: '1.6',  letterSpacing: '0.04em', fontWeight: '500' }],
-        'mono-sm': ['0.625rem',                     { lineHeight: '1.5',  letterSpacing: '0.05em', fontWeight: '500' }],
-        'label':   ['0.6875rem',                    { lineHeight: '1.33', letterSpacing: '0.08em', fontWeight: '600' }],
+        'mega':    ['clamp(4rem, 12vw, 12rem)',   { lineHeight: '0.9',   letterSpacing: '-0.06em', fontWeight: '900' }],
+        'hero':    ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '0.9',  letterSpacing: '-0.045em', fontWeight: '700' }],
+        'display': ['clamp(2rem, 3.5vw, 3rem)',   { lineHeight: '1.1',  letterSpacing: '-0.03em', fontWeight: '700' }],
+        'title':   ['clamp(1.25rem, 2vw, 1.75rem)',{ lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'body':    ['1rem',                         { lineHeight: '1.6',  letterSpacing: '-0.01em', fontWeight: '400' }],
+        'mono-body': ['0.6875rem',                  { lineHeight: '1.6',  letterSpacing: '0.04em', fontWeight: '400' }],
+        'mono-sm': ['0.625rem',                     { lineHeight: '1.5',  letterSpacing: '0.05em', fontWeight: '400' }],
+        'label':   ['0.6875rem',                    { lineHeight: '1.33', letterSpacing: '0.08em', fontWeight: '500' }],
       },
       spacing: {
         'section-y': 'clamp(4rem, 8vw, 8rem)',
