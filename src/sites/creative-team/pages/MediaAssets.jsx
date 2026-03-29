@@ -47,9 +47,9 @@ export default function MediaAssets() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
-              {assets.map((asset) => (
+              {assets.map((asset, i) => (
                 <div key={asset.name} className="bg-background">
-                  <AssetCard {...asset} />
+                  <AssetCard {...asset} stagger={(i % 3) + 1} />
                 </div>
               ))}
             </div>

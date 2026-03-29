@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import WireframeGrid from '../../../components/ui/WireframeGrid'
 import ParallaxImage from '../../../components/ui/ParallaxImage'
 import ColorSwatch from '../../../components/ui/ColorSwatch'
 import TypeSpecimen from '../../../components/ui/TypeSpecimen'
@@ -79,6 +80,9 @@ const cardVariants = {
 }
 
 export default function CoreBrandIdentity() {
+  const dividerRef = useRef(null)
+  const dividerInView = useInView(dividerRef, { once: true, amount: 0.1 })
+
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────── */}
@@ -107,9 +111,14 @@ export default function CoreBrandIdentity() {
             </div>
 
             {/* Landscape video — painting close-up */}
-            <div className="relative w-full aspect-[16/9] lg:aspect-[16/8] bg-background overflow-hidden border-t border-white/10">
+            <motion.div
+              className="relative w-full aspect-[16/9] lg:aspect-[16/8] bg-background overflow-hidden border-t border-white/10"
+              initial={{ clipPath: 'inset(0 100% 0 0)' }}
+              animate={{ clipPath: 'inset(0 0% 0 0)' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            >
               <ParallaxImage src="/horizontal1.png" alt="Creative team hero landscape" className="grayscale-img" />
-            </div>
+            </motion.div>
           </div>
 
           {/* Right — brand panel + portrait video */}
@@ -139,21 +148,19 @@ export default function CoreBrandIdentity() {
 
             {/* Portrait video — photographer silhouette */}
             <div className="border-t border-white/10 relative">
-              <div className="relative min-h-[400px] lg:min-h-[650px] bg-background overflow-hidden">
+              <motion.div
+                className="relative min-h-[400px] lg:min-h-[650px] bg-background overflow-hidden"
+                initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                animate={{ clipPath: 'inset(0 0% 0 0)' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+              >
                 <ParallaxImage src="/vertical.png" alt="Portrait sidebar" className="grayscale-img" />
-              </div>
+              </motion.div>
             </div>
 
-            {/* Grid animation — ping-pong loop */}
+            {/* Grid animation */}
             <div className="border-t border-white/10 bg-surface flex-1 overflow-hidden relative">
-              <DotLottieReact
-                src="https://lottie.host/8fef5044-ae93-4df7-bb89-427d33a3c0a8/Lkn3PMD5h8.lottie"
-                loop
-                autoplay
-                mode="bounce"
-                speed={0.8}
-                className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-[189%] h-[189%]"
-              />
+              <WireframeGrid />
             </div>
 
             <div className="border-t border-white/10 bg-surface px-8 md:px-10 py-10">
@@ -200,11 +207,16 @@ export default function CoreBrandIdentity() {
       </section>
 
       {/* ── CINEMATIC DIVIDER — outer space (scroll-driven) ─── */}
-      <section className="relative border-t border-white/10 overflow-hidden">
-        <div className="relative w-full aspect-[21/9] bg-background">
+      <section ref={dividerRef} className="relative border-t border-white/10">
+        <motion.div
+          className="relative w-full aspect-[21/9] bg-background overflow-hidden"
+          initial={{ clipPath: 'inset(0 100% 0 0)' }}
+          animate={dividerInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <ParallaxImage src="/horizontal2.png" alt="Cinematic divider" className="grayscale-img" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60 z-[2]" />
-        </div>
+        </motion.div>
       </section>
 
       {/* ── LOGO & PHILOSOPHY ──────────────────────────────────── */}
