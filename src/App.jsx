@@ -1,12 +1,13 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useScrollRevealAll } from './hooks/useScrollReveal'
 import { useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import CoreBrandIdentity from './pages/CoreBrandIdentity'
-import BrandMessaging from './pages/BrandMessaging'
-import MediaAssets from './pages/MediaAssets'
-import CreativeRequest from './pages/CreativeRequest'
+
+import HQLanding from './pages/HQLanding'
+import KitchenOSPage from './sites/kitchenos/KitchenOSPage'
+import CreativeTeamLayout from './sites/creative-team/CreativeTeamLayout'
+import CoreBrandIdentity from './sites/creative-team/pages/CoreBrandIdentity'
+import BrandMessaging from './sites/creative-team/pages/BrandMessaging'
+import MediaAssets from './sites/creative-team/pages/MediaAssets'
+import CreativeRequest from './sites/creative-team/pages/CreativeRequest'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -17,22 +18,19 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const { pathname } = useLocation()
-  useScrollRevealAll(pathname)
-
   return (
     <>
       <ScrollToTop />
-      <Navbar />
-      <main className="relative z-10">
-        <Routes>
-          <Route path="/" element={<CoreBrandIdentity />} />
-          <Route path="/messaging" element={<BrandMessaging />} />
-          <Route path="/media" element={<MediaAssets />} />
-          <Route path="/request" element={<CreativeRequest />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HQLanding />} />
+        <Route path="/kitchenos" element={<KitchenOSPage />} />
+        <Route path="/creative-team" element={<CreativeTeamLayout />}>
+          <Route index element={<CoreBrandIdentity />} />
+          <Route path="messaging" element={<BrandMessaging />} />
+          <Route path="media" element={<MediaAssets />} />
+          <Route path="request" element={<CreativeRequest />} />
+        </Route>
+      </Routes>
     </>
   )
 }

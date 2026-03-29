@@ -9,7 +9,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    @apply bg-background text-foreground font-sans m-0;
+    @apply font-sans m-0;
   }
 }
 

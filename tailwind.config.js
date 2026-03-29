@@ -27,6 +27,8 @@ export default {
       fontFamily: {
         sans:  ['"DM Sans"', 'system-ui', 'sans-serif'],
         mono:  ['"DM Mono"', 'ui-monospace', 'monospace'],
+        'ko-sans': ['Inter', 'system-ui', 'sans-serif'],
+        'ko-mono': ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       fontSize: {
         'mega':    ['clamp(4rem, 12vw, 12rem)',   { lineHeight: '0.9',   letterSpacing: '-0.06em', fontWeight: '900' }],
