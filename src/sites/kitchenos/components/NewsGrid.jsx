@@ -61,12 +61,12 @@ export default function NewsGrid() {
               <div key={i}
                    className={`animate-on-scroll stagger-${Math.min(i + 1, 6)} border-b border-[#2A2A22] last:border-b-0 h-[40vh] flex flex-col justify-end p-8 lg:p-12 group cursor-pointer transition-colors duration-300
                      ${isDark ? 'bg-[#2A2A22] text-white hover:bg-[#2A2A22]/90' : 'bg-[#DBD4C9] hover:bg-surface-light'}`}>
-                <p className={`font-mono text-mono-sm uppercase tracking-widest mb-4 ${isDark ? 'text-white/25' : 'text-ink-faint'}`}>{a.date}</p>
+                <p className={`font-mono text-mono-sm uppercase tracking-widest mb-4 ${isDark ? 'text-white/60' : 'text-ink-faint'}`}>{a.date}</p>
                 <h3 className={`text-4xl uppercase font-bold tracking-tighter mb-3 transition-colors duration-300
                   ${isDark ? 'text-white group-hover:text-[#455602]' : 'group-hover:text-[#455602]'}`}>
                   {a.title}
                 </h3>
-                <p className={`mono-upper ${isDark ? 'text-white/40' : 'text-ink-muted'}`}>{a.desc}</p>
+                <p className={`mono-upper ${isDark ? 'text-white/70' : 'text-ink-muted'}`}>{a.desc}</p>
               </div>
             )
           })}

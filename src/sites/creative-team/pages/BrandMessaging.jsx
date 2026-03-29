@@ -125,7 +125,7 @@ export default function BrandMessaging() {
             <div key={s.num} className={`animate-on-scroll stagger-${i + 1} p-8 lg:p-10`}>
               <span className="font-mono text-[3rem] font-bold text-accent/30 leading-none block mb-4">{s.num}</span>
               <h3 className="text-title text-white mb-3">{s.title}</h3>
-              <p className="font-mono text-mono-body uppercase text-white/30">{s.desc}</p>
+              <p className="font-mono text-mono-body uppercase text-white/60">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -160,8 +160,8 @@ export default function BrandMessaging() {
               </div>
               {/* Don't */}
               <div className="lg:col-span-5 px-8 md:px-10 py-8 lg:py-10">
-                <span className="font-mono text-mono-sm uppercase tracking-widest text-white/30 block mb-3">Don't</span>
-                <p className="text-body text-white/30">{ex.dontExample}</p>
+                <span className="font-mono text-mono-sm uppercase tracking-widest text-white/60 block mb-3">Don't</span>
+                <p className="text-body text-white/60">{ex.dontExample}</p>
               </div>
             </motion.div>
           ))}

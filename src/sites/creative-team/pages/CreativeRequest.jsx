@@ -146,7 +146,7 @@ export default function CreativeRequest() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             >
-              <h3 className="text-title text-white mb-6">How It Works</h3>
+              <h2 className="text-title text-white mb-6">How It Works</h2>
               <div className="space-y-6">
                 {[
                   { num: '01', title: 'Submit', desc: 'Fill out the form with your project details and requirements.' },
@@ -157,8 +157,8 @@ export default function CreativeRequest() {
                   <div key={step.num} className="flex gap-4">
                     <span className="font-mono text-mono-sm text-accent/50 flex-shrink-0 pt-1">{step.num}</span>
                     <div>
-                      <h4 className="text-title text-white mb-1">{step.title}</h4>
-                      <p className="font-mono text-mono-body uppercase text-white/30">{step.desc}</p>
+                      <h3 className="text-title text-white mb-1">{step.title}</h3>
+                      <p className="font-mono text-mono-body uppercase text-white/60">{step.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -173,9 +173,9 @@ export default function CreativeRequest() {
                     { label: 'High Priority', time: '1-2 business days' },
                     { label: 'Urgent', time: 'Same day (subject to availability)' },
                   ].map((t) => (
-                    <div key={t.label} className="flex items-center justify-between font-mono text-mono-body uppercase text-white/30">
+                    <div key={t.label} className="flex items-center justify-between font-mono text-mono-body uppercase text-white/60">
                       <span>{t.label}</span>
-                      <span className="text-white/50">{t.time}</span>
+                      <span className="text-white/70">{t.time}</span>
                     </div>
                   ))}
                 </div>

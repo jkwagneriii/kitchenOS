@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-16 pt-6 pb-4">
           {/* Back to HQ */}
           <div className="flex items-center gap-4">
-            <Link to="/" className={`font-mono text-mono-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${scrolled && !open ? 'text-white/50' : 'text-white/60'}`}>
+            <Link to="/" className={`font-mono text-mono-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${scrolled && !open ? 'text-white/90' : 'text-white'}`}>
               &larr; HQ
             </Link>
             {/* Logo */}

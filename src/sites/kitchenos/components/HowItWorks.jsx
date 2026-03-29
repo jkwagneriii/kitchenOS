@@ -20,7 +20,7 @@ export default function HowItWorks() {
                className={`animate-on-scroll stagger-${i + 1} p-8 lg:p-10`}>
             <span className="font-mono text-[3rem] font-bold text-[#455602]/30 leading-none block mb-4">{s.num}</span>
             <h3 className="text-title text-white mb-3">{s.title}</h3>
-            <p className="font-mono text-mono-body uppercase text-white/30">{s.desc}</p>
+            <p className="font-mono text-mono-body uppercase text-white/60">{s.desc}</p>
           </div>
         ))}
       </div>

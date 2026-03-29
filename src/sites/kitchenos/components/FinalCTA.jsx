@@ -11,7 +11,7 @@ export default function FinalCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-[#DBD4C9]/20">
           <div className="lg:col-span-7 px-8 md:px-12 lg:px-16 py-section-y">
             <h2 className="text-hero mb-6 animate-on-scroll">Your Kitchen Deserves Better Software</h2>
-            <p className="font-mono text-mono-body uppercase text-[#DBD4C9]/50 max-w-md animate-on-scroll stagger-1">
+            <p className="font-mono text-mono-body uppercase text-[#DBD4C9] max-w-md animate-on-scroll stagger-1">
               Start managing inventory, prep, and ordering in one platform today.
             </p>
           </div>
@@ -33,13 +33,13 @@ export default function FinalCTA() {
         {/* Email input row */}
         <div className="px-8 md:px-12 lg:px-16 py-8 flex items-center justify-center">
           <form className="flex items-center gap-0 w-full max-w-md" onSubmit={(e) => e.preventDefault()}>
-            <span className="text-[#DBD4C9]/40 font-mono text-sm mr-1">(</span>
+            <span className="text-[#DBD4C9] font-mono text-sm mr-1">(</span>
             <input
               type="email"
               placeholder="Enter your email"
               className="flex-1 px-2 py-3 bg-transparent border-b border-[#DBD4C9]/20 text-[#DBD4C9] placeholder:text-[#DBD4C9]/30 focus:outline-none focus:border-[#DBD4C9] transition-all duration-300 font-mono text-mono-body uppercase"
             />
-            <span className="text-[#DBD4C9]/40 font-mono text-sm ml-1 mr-4">)</span>
+            <span className="text-[#DBD4C9] font-mono text-sm ml-1 mr-4">)</span>
             <button
               type="submit"
               className="px-6 py-3 bg-[#DBD4C9] text-[#455602] font-mono text-mono-body uppercase tracking-widest font-bold hover:bg-[#DBD4C9]/80 transition-all duration-300 cursor-pointer whitespace-nowrap">

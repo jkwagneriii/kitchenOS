@@ -27,14 +27,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-16 pt-6 pb-4">
           {/* Back to HQ + Logo */}
           <div className="flex items-center gap-4">
-            <Link to="/" className={`font-mono text-[10px] uppercase tracking-widest transition-colors duration-300 hover:text-[#455602] ${scrolled && !open ? 'text-[#DBD4C9]/50' : 'text-[#2A2A22]/60'}`}>
+            <Link to="/" className={`font-mono text-[10px] uppercase tracking-widest transition-colors duration-300 hover:text-[#455602] ${scrolled && !open ? 'text-[#DBD4C9]' : 'text-[#DBD4C9]'}`}>
               &larr; HQ
             </Link>
           <a href="#" className="flex items-center gap-2 group">
             <div className="w-8 h-8 bg-[#2A2A22] flex items-center justify-center">
               <span className="font-mono text-[10px] font-bold text-white leading-none tracking-tight">KO</span>
             </div>
-            <span className={`text-sm font-bold tracking-tight uppercase transition-colors duration-300 ${scrolled && !open ? 'text-[#DBD4C9]' : 'text-[#2A2A22]'}`}>KITCH<span className="inline-block w-[3px] h-[0.85em] bg-current transform -skew-x-[20deg] mx-[0.1em] translate-y-[0.05em]" />OS</span>
+            <span className={`text-sm font-bold tracking-tight uppercase transition-colors duration-300 ${scrolled && !open ? 'text-[#DBD4C9]' : 'text-[#DBD4C9]'}`}>KITCH<span className="inline-block w-[3px] h-[0.85em] bg-current transform -skew-x-[20deg] mx-[0.1em] translate-y-[0.05em]" />OS</span>
           </a>
           </div>
 
@@ -45,11 +45,11 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span className="flex flex-col gap-[5px]">
-              <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#2A2A22]'} ${open ? 'rotate-45 translate-y-[7px] !bg-[#DBD4C9]' : ''}`} />
-              <span className={`block w-6 h-[2px] transition-all duration-300 ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#2A2A22]'} ${open ? 'opacity-0' : ''}`} />
-              <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#2A2A22]'} ${open ? '-rotate-45 -translate-y-[7px] !bg-[#DBD4C9]' : ''}`} />
+              <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#DBD4C9]'} ${open ? 'rotate-45 translate-y-[7px] !bg-[#DBD4C9]' : ''}`} />
+              <span className={`block w-6 h-[2px] transition-all duration-300 ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#DBD4C9]'} ${open ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${scrolled && !open ? 'bg-[#DBD4C9]' : 'bg-[#DBD4C9]'} ${open ? '-rotate-45 -translate-y-[7px] !bg-[#DBD4C9]' : ''}`} />
             </span>
-            <span className={`font-mono text-mono-sm uppercase tracking-widest hidden sm:block transition-colors duration-300 ${scrolled && !open ? 'text-[#DBD4C9]' : 'text-[#2A2A22]'} ${open ? '!text-[#DBD4C9]' : ''}`}>Menu</span>
+            <span className={`font-mono text-mono-sm uppercase tracking-widest hidden sm:block transition-colors duration-300 ${scrolled && !open ? 'text-[#DBD4C9]' : 'text-[#DBD4C9]'} ${open ? '!text-[#DBD4C9]' : ''}`}>Menu</span>
           </button>
         </div>
       </nav>

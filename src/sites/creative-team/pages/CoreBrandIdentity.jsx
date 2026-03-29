@@ -129,7 +129,7 @@ export default function CoreBrandIdentity() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
             >
-              <h3 className="text-title text-white mb-6">Brand System</h3>
+              <h2 className="text-title text-white mb-6">Brand System</h2>
               <div className="space-y-1">
                 {[
                   { label: 'Visual Language', id: 'visual-language' },
@@ -138,7 +138,7 @@ export default function CoreBrandIdentity() {
                   { label: 'Typography', id: 'typography' },
                   { label: 'Brand Icons', id: 'brand-icons' },
                 ].map((item, i) => (
-                  <a key={item.id} href={`#${item.id}`} className="group/link flex items-center justify-between font-mono text-mono-sm uppercase tracking-wider text-white/40 hover:text-white transition-colors">
+                  <a key={item.id} href={`#${item.id}`} className="group/link flex items-center justify-between font-mono text-mono-sm uppercase tracking-wider text-white/70 hover:text-white transition-colors">
                     <span>{String(i + 1).padStart(2, '0')}. {item.label}</span>
                     <span className="w-1.5 h-1.5 bg-white/15 group-hover/link:bg-accent flex-shrink-0 ml-2 transition-colors" />
                   </a>
@@ -164,7 +164,7 @@ export default function CoreBrandIdentity() {
             </div>
 
             <div className="border-t border-white/10 bg-surface px-8 md:px-10 py-10">
-              <p className="font-mono text-mono-body uppercase text-white/30">
+              <p className="font-mono text-mono-body uppercase text-white/60">
                 The Creative Team™ brand system is built on Swiss design principles — precision, clarity, and structured visual hierarchy.
               </p>
             </div>
@@ -200,7 +200,7 @@ export default function CoreBrandIdentity() {
             <div key={s.num} className={`animate-on-scroll stagger-${i + 1} p-8 lg:p-10 cell-hover group`}>
               <span className="font-mono text-[3rem] font-bold text-accent/30 group-hover:text-white leading-none block mb-4 transition-colors">{s.num}</span>
               <h3 className="text-title text-white mb-3 group-hover:text-white transition-colors">{s.title}</h3>
-              <p className="font-mono text-mono-body uppercase text-white/30 group-hover:text-white/70">{s.desc}</p>
+              <p className="font-mono text-mono-body uppercase text-white/60 group-hover:text-white/80">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -267,7 +267,7 @@ export default function CoreBrandIdentity() {
 
             <div className="px-8 md:px-10 py-8 border-t border-white/10">
               <h4 className="font-mono text-mono-sm uppercase tracking-widest text-faint mb-4 animate-on-scroll">Clear Space & Minimum Size</h4>
-              <p className="font-mono text-mono-body uppercase text-white/30 animate-on-scroll stagger-1">
+              <p className="font-mono text-mono-body uppercase text-white/60 animate-on-scroll stagger-1">
                 Maintain a minimum clear space equal to the height of the "C" in the mark on all sides. Minimum reproduction size: 24px digital, 8mm print.
               </p>
             </div>
@@ -328,7 +328,7 @@ export default function CoreBrandIdentity() {
           {brandIcons.map((icon) => (
             <motion.div
               key={icon.name}
-              className="flex flex-col items-center justify-center p-8 lg:p-10 cell-hover group text-white/40 hover:text-white"
+              className="flex flex-col items-center justify-center p-8 lg:p-10 cell-hover group text-white/70 hover:text-white"
               variants={cardVariants}
             >
               <div className="mb-4 group-hover:scale-110 transition-transform duration-300">

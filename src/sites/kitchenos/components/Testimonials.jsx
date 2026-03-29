@@ -34,8 +34,8 @@ export default function Testimonials() {
               <p className="text-title text-white mb-8 leading-snug">{t.quote}</p>
             </div>
             <div className="border-t border-white/10 pt-4">
-              <p className="font-mono text-mono-body uppercase text-white/40">{t.name}</p>
-              <p className="font-mono text-mono-sm uppercase text-white/25">{t.company}</p>
+              <p className="font-mono text-mono-body uppercase text-white/70">{t.name}</p>
+              <p className="font-mono text-mono-sm uppercase text-white/60">{t.company}</p>
             </div>
           </div>
         ))}

@@ -68,7 +68,7 @@ function buildShuffleOrder(totalCells, cycleIndex) {
   return order;
 }
 
-export default function WireframeGrid() {
+export default function WireframeGrid({ showImages = true }) {
   const canvasRef = useRef(null);
   const sizeRef   = useRef({ width: 0, height: 0 });
   const rafRef    = useRef(null);
@@ -77,7 +77,7 @@ export default function WireframeGrid() {
   const shuffleRef = useRef({ cycle: -1, order: [] });
   const { r, g, b } = parseHex(ACCENT);
 
-  const [imageIndex, setImageIndex] = useState(() => imageForCycle(0));
+  const [imageIndex, setImageIndex] = useState(() => showImages ? imageForCycle(0) : 0);
 
   const computeGrid = useCallback((w, h) => {
     const cols = Math.max(1, Math.round(w / TARGET_CELL));
@@ -132,7 +132,7 @@ export default function WireframeGrid() {
       const totalCells = cols * rows;
 
       // ── swap image during hold (fully covered by accent) ──
-      if (cycle >= P_FILL_DONE && lastCycleRef.current !== cycleIndex) {
+      if (showImages && cycle >= P_FILL_DONE && lastCycleRef.current !== cycleIndex) {
         lastCycleRef.current = cycleIndex;
         setImageIndex(imageForCycle(cycleIndex + 1));
       }
@@ -236,19 +236,21 @@ export default function WireframeGrid() {
 
   return (
     <>
-      <img
-        src={IMAGES[imageIndex]}
-        alt=""
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block",
-          filter: "grayscale(100%) contrast(120%) brightness(1.0)",
-        }}
-      />
+      {showImages && (
+        <img
+          src={IMAGES[imageIndex]}
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            filter: "grayscale(100%) contrast(120%) brightness(1.0)",
+          }}
+        />
+      )}
       <canvas
         ref={canvasRef}
         style={{

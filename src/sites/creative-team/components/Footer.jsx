@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import WireframeGrid from '../../../components/ui/WireframeGrid'
 
 const columns = [
   {
@@ -30,19 +31,24 @@ export default function Footer() {
             </div>
             <span className="text-sm font-bold tracking-tight uppercase">Creative Team</span>
           </div>
-          <p className="font-mono text-mono-body uppercase text-white/40 max-w-sm">
+          <p className="font-mono text-mono-body uppercase text-white/70 max-w-sm">
             The internal brand portal for Creative Team™ — guidelines, assets, and resources.
           </p>
         </div>
 
+        {/* Grid animation cell */}
+        <div className="hidden lg:block lg:col-span-2 border-r border-white/10 border-b border-white/10 relative overflow-hidden">
+          <WireframeGrid showImages={false} />
+        </div>
+
         {/* Nav columns */}
         {columns.map((col, i) => (
-          <div key={col.title} className={`lg:col-span-2 px-8 py-12 border-r border-white/10 border-b border-white/10 ${i === 0 ? 'lg:col-start-7' : ''}`}>
-            <h4 className="font-mono text-mono-sm uppercase tracking-widest mb-5">{col.title}</h4>
+          <div key={col.title} className={`lg:col-span-2 px-8 py-12 border-r border-white/10 border-b border-white/10`}>
+            <p className="font-mono text-mono-sm uppercase tracking-widest mb-5">{col.title}</p>
             <ul className="space-y-3">
               {col.links.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="font-mono text-mono-body uppercase text-white/40 hover:text-accent transition-colors duration-300 cursor-pointer">
+                  <Link to={link.to} className="font-mono text-mono-body uppercase text-white/70 hover:text-accent transition-colors duration-300 cursor-pointer">
                     {link.label}
                   </Link>
                 </li>
@@ -50,15 +56,14 @@ export default function Footer() {
             </ul>
           </div>
         ))}
+
+        {/* Empty closing cell */}
+        <div className="hidden lg:block lg:col-span-2 border-b border-white/10" />
       </div>
 
       {/* Bottom bar */}
-      <div className="relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 pointer-events-none select-none" aria-hidden="true">
-          <span className="font-sans text-[20vw] font-bold text-white/[0.08] leading-none block -mb-[0.15em]">CT</span>
-        </div>
-
-        <div className="relative z-10 px-8 md:px-12 lg:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-mono-sm uppercase text-white/30">
+      <div>
+        <div className="px-8 md:px-12 lg:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-mono-sm uppercase text-white/60">
           <p>&copy; 2026 Creative Team™. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="hover:text-accent transition-colors duration-300 cursor-pointer">Internal Use Only</span>

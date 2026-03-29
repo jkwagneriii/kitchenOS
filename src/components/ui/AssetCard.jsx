@@ -26,9 +26,9 @@ export default function AssetCard({ name, category, dimensions, fileType, thumbn
 
       {/* Info */}
       <div className="p-6 border-t border-white/10">
-        <h4 className="text-title text-white mb-2 group-hover:text-white transition-colors">{name}</h4>
+        <h3 className="text-title text-white mb-2 group-hover:text-white transition-colors">{name}</h3>
         <div className="flex items-center justify-between">
-          <span className="font-mono text-mono-sm uppercase text-white/30 group-hover:text-white/50">
+          <span className="font-mono text-mono-sm uppercase text-white/60 group-hover:text-white/70">
             {[fileType, dimensions].filter(Boolean).join(' · ')}
           </span>
           {downloadUrl && (

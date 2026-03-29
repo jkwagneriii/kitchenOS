@@ -17,7 +17,7 @@ export default function Footer() {
             </div>
             <span className="text-sm font-bold tracking-tight uppercase">KITCH<span className="inline-block w-[3px] h-[0.85em] bg-current transform -skew-x-[20deg] mx-[0.1em] translate-y-[0.05em]" />OS</span>
           </div>
-          <p className="font-mono text-mono-body uppercase text-[#DBD4C9]/40 max-w-sm">
+          <p className="font-mono text-mono-body uppercase text-[#DBD4C9] max-w-sm">
             The kitchen management platform built for speed, clarity, and control.
           </p>
         </div>
@@ -25,11 +25,11 @@ export default function Footer() {
         {/* Nav columns */}
         {columns.map((col, i) => (
           <div key={col.title} className={`lg:col-span-2 px-8 py-12 border-r border-[#DBD4C9]/20 border-b border-[#DBD4C9]/20 ${i === 0 ? 'lg:col-start-6' : ''}`}>
-            <h4 className="font-mono text-mono-sm uppercase tracking-widest mb-5">{col.title}</h4>
+            <p className="font-mono text-mono-sm uppercase tracking-widest mb-5">{col.title}</p>
             <ul className="space-y-3">
               {col.links.map((link) => (
                 <li key={link}>
-                  <a href="#" className="font-mono text-mono-body uppercase text-[#DBD4C9]/40 hover:text-[#DBD4C9] transition-colors duration-300 cursor-pointer">
+                  <a href="#" className="font-mono text-mono-body uppercase text-[#DBD4C9]/90 hover:text-[#DBD4C9] transition-colors duration-300 cursor-pointer">
                     {link}
                   </a>
                 </li>
@@ -45,7 +45,7 @@ export default function Footer() {
           <span className="font-sans text-[20vw] font-bold text-[#DBD4C9]/[0.08] leading-none block -mb-[0.15em]">K<span className="inline-block w-[0.04em] h-[0.65em] bg-current transform -skew-x-[20deg] mx-[0.02em]" />OS</span>
         </div>
 
-        <div className="relative z-10 px-8 md:px-12 lg:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-mono-sm uppercase text-[#DBD4C9]/30">
+        <div className="relative z-10 px-8 md:px-12 lg:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-mono-sm uppercase text-[#DBD4C9]">
           <p>&copy; 2026 KitchenOS. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-[#DBD4C9] transition-colors duration-300 cursor-pointer">Privacy Policy</a>

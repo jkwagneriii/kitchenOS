@@ -41,14 +41,14 @@ function SystemStatusPanel() {
   return (
     <div className="bg-[#2A2A22] px-8 md:px-10 py-10 flex-1 flex flex-col justify-between">
       <div>
-        <h3 className="text-title text-white mb-6">System Status</h3>
+        <p className="text-title text-white mb-6" role="heading" aria-level="2">System Status</p>
         <div className="space-y-1">
           {modules.map((item, i) => (
             <div key={item} className="flex items-center justify-between font-mono text-mono-sm uppercase tracking-wider">
               <motion.span
                 animate={{
                   opacity: i === activeIndex ? 1 : 0.3,
-                  color: i === activeIndex ? '#455602' : 'rgba(255,255,255,0.3)',
+                  color: i === activeIndex ? '#A8CC2C' : 'rgba(255,255,255,0.6)',
                 }}
                 transition={{ duration: 0.4 }}
                 style={{ willChange: 'opacity' }}
@@ -145,7 +145,7 @@ export default function Hero() {
             {/* CTA bar — clean grid divider */}
             <div className="border-t border-[#2A2A22] bg-[#2A2A22] px-8 md:px-10 py-6 flex items-center justify-between">
               <p className="text-title text-[#DBD4C9]">Explore the platform.</p>
-              <svg className="w-8 h-8 text-[#DBD4C9]/40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="8">
+              <svg className="w-8 h-8 text-[#DBD4C9]/70" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="8">
                 <line x1="15" y1="85" x2="85" y2="15" />
                 <polyline points="40,15 85,15 85,60" />
               </svg>
