@@ -1,43 +1,54 @@
 import { motion } from 'framer-motion'
 
-export default function AssetCard({ name, category, dimensions, fileType, thumbnailUrl, downloadUrl, stagger = 0 }) {
+export default function AssetCard({ name, dimensions, fileType, thumbnailUrl, downloadUrl, solidColor, stagger = 0, onClick }) {
   return (
-    <div className="animate-on-scroll group bg-surface hover:bg-accent transition-colors duration-300">
+    <div
+      className="group bg-surface hover:bg-accent transition-colors duration-300 cursor-pointer"
+      onClick={onClick}
+    >
       {/* Thumbnail */}
-      <motion.div
-        className="w-full aspect-video bg-background overflow-hidden"
-        initial={{ clipPath: 'inset(50% 50% 50% 50%)' }}
-        whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: stagger * 0.06 }}
-      >
+      <div className="w-full aspect-[4/3] bg-background overflow-hidden">
         {thumbnailUrl ? (
           <img
             src={thumbnailUrl}
             alt={name}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
+        ) : solidColor ? (
+          <div
+            className="w-full h-full flex items-end p-4 group-hover:scale-105 transition-transform duration-500"
+            style={{ backgroundColor: solidColor }}
+          >
+            <span className="font-mono text-[10px] uppercase tracking-widest opacity-50"
+              style={{ color: solidColor === '#FFFFFF' || solidColor === '#DCE6F4' ? '#212121' : '#ffffff' }}
+            >
+              {solidColor}
+            </span>
+          </div>
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <span className="font-mono text-mono-sm uppercase text-white/20">{fileType || 'Asset'}</span>
           </div>
         )}
-      </motion.div>
+      </div>
 
-      {/* Info */}
-      <div className="p-6 border-t border-white/10">
-        <h3 className="text-title text-white mb-2 group-hover:text-white transition-colors">{name}</h3>
+      {/* Info — compact */}
+      <div className="px-4 py-3 border-t border-white/10">
+        <h3 className="text-sm font-bold text-white mb-0.5 group-hover:text-white transition-colors truncate">{name}</h3>
         <div className="flex items-center justify-between">
-          <span className="font-mono text-mono-sm uppercase text-white/60 group-hover:text-white/70">
+          <span className="font-mono text-[10px] uppercase text-white/60 group-hover:text-white/70">
             {[fileType, dimensions].filter(Boolean).join(' · ')}
           </span>
           {downloadUrl && (
             <a
               href={downloadUrl}
               download
-              className="font-mono text-mono-sm uppercase tracking-widest text-faint hover:text-white transition-colors duration-300 cursor-pointer"
+              onClick={(e) => e.stopPropagation()}
+              className="font-mono text-[10px] uppercase tracking-widest text-faint hover:text-white transition-colors duration-300"
             >
-              Download
+              ↓
             </a>
           )}
         </div>

@@ -15,20 +15,20 @@ const P_FILL_OUT    = 0.70; // squares finish revealing image
 const P_ERASE_START = 0.76; // lines start erasing
 
 const IMAGES = [
-  "/image-cycle/Low-res-104.png",
-  "/image-cycle/Low-res-109.png",
-  "/image-cycle/Low-res-122.png",
-  "/image-cycle/Low-res-13.png",
-  "/image-cycle/Low-res-151.png",
-  "/image-cycle/Low-res-158.png",
-  "/image-cycle/Low-res-168.png",
-  "/image-cycle/Low-res-175.png",
-  "/image-cycle/Low-res-18.png",
-  "/image-cycle/Low-res-189.png",
-  "/image-cycle/Low-res-203.png",
-  "/image-cycle/Low-res-209.png",
-  "/image-cycle/Low-res-23.png",
-  "/image-cycle/Low-res-77.png",
+  "/image-cycle/Low-res-104.webp",
+  "/image-cycle/Low-res-109.webp",
+  "/image-cycle/Low-res-122.webp",
+  "/image-cycle/Low-res-13.webp",
+  "/image-cycle/Low-res-151.webp",
+  "/image-cycle/Low-res-158.webp",
+  "/image-cycle/Low-res-168.webp",
+  "/image-cycle/Low-res-175.webp",
+  "/image-cycle/Low-res-18.webp",
+  "/image-cycle/Low-res-189.webp",
+  "/image-cycle/Low-res-203.webp",
+  "/image-cycle/Low-res-209.webp",
+  "/image-cycle/Low-res-23.webp",
+  "/image-cycle/Low-res-77.webp",
 ];
 
 function parseHex(hex) {
@@ -240,6 +240,8 @@ export default function WireframeGrid({ showImages = true }) {
         <img
           src={IMAGES[imageIndex]}
           alt=""
+          loading="lazy"
+          decoding="async"
           style={{
             position: "absolute",
             inset: 0,

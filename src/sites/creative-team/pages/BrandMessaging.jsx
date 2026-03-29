@@ -123,7 +123,7 @@ export default function BrandMessaging() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-bordered-dark">
           {messagingPillars.map((s, i) => (
             <div key={s.num} className={`animate-on-scroll stagger-${i + 1} p-8 lg:p-10`}>
-              <span className="font-mono text-[3rem] font-bold text-accent/30 leading-none block mb-4">{s.num}</span>
+              <span className="font-mono text-[3rem] font-bold text-white/30 leading-none block mb-4">{s.num}</span>
               <h3 className="text-title text-white mb-3">{s.title}</h3>
               <p className="font-mono text-mono-body uppercase text-white/60">{s.desc}</p>
             </div>

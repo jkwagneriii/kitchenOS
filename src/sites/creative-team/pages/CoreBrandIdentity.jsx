@@ -117,7 +117,7 @@ export default function CoreBrandIdentity() {
               animate={{ clipPath: 'inset(0 0% 0 0)' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             >
-              <ParallaxImage src="/horizontal1.png" alt="Creative team hero landscape" className="grayscale-img" />
+              <ParallaxImage src="/horizontal1.webp" alt="Creative team hero landscape" className="grayscale-img" />
             </motion.div>
           </div>
 
@@ -154,7 +154,7 @@ export default function CoreBrandIdentity() {
                 animate={{ clipPath: 'inset(0 0% 0 0)' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
               >
-                <ParallaxImage src="/vertical.png" alt="Portrait sidebar" className="grayscale-img" />
+                <ParallaxImage src="/vertical.webp" alt="Portrait sidebar" className="grayscale-img" />
               </motion.div>
             </div>
 
@@ -214,7 +214,7 @@ export default function CoreBrandIdentity() {
           animate={dividerInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <ParallaxImage src="/horizontal2.png" alt="Cinematic divider" className="grayscale-img" />
+          <ParallaxImage src="/horizontal2.webp" alt="Cinematic divider" className="grayscale-img" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60 z-[2]" />
         </motion.div>
       </section>

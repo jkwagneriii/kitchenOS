@@ -20,6 +20,8 @@ export default function ParallaxImage({
       <motion.img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-full object-cover scale-[1.15] ${className}`}
         style={prefersReducedMotion ? {} : { y }}
       />
