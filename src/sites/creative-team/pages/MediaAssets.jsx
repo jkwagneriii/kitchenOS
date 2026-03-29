@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import usePageMeta from '../../../hooks/usePageMeta'
 import { motion, AnimatePresence } from 'framer-motion'
 import AssetCard from '../../../components/ui/AssetCard'
 import { imageAssets, zoomAssets, linkedinAssets, mediaAssets } from '../data/mediaAssets'
@@ -193,6 +194,7 @@ function ImageGallery({ onOpenLightbox }) {
 }
 
 export default function MediaAssets() {
+  usePageMeta('Media Assets — Creative Team', 'Browse and download brand photography, Zoom backgrounds, and LinkedIn banners.')
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
   const allAssets = mediaAssets.filter((a) => a.thumbnailUrl)

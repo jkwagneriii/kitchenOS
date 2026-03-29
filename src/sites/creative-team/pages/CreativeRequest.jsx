@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import usePageMeta from '../../../hooks/usePageMeta'
 import { motion } from 'framer-motion'
 import FormField from '../../../components/ui/FormField'
 
@@ -16,6 +17,7 @@ const initialForm = {
 }
 
 export default function CreativeRequest() {
+  usePageMeta('Creative Request — Creative Team', 'Submit a creative request for design, photography, or brand assets.')
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
 

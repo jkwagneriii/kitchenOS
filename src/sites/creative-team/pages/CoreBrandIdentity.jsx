@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import usePageMeta from '../../../hooks/usePageMeta'
 import { motion, useInView } from 'framer-motion'
 import WireframeGrid from '../../../components/ui/WireframeGrid'
 import ParallaxImage from '../../../components/ui/ParallaxImage'
@@ -80,6 +81,7 @@ const cardVariants = {
 }
 
 export default function CoreBrandIdentity() {
+  usePageMeta('Brand Identity — Creative Team', 'Core brand guidelines — colors, typography, logo usage, and iconography.')
   const dividerRef = useRef(null)
   const dividerInView = useInView(dividerRef, { once: true, amount: 0.1 })
 

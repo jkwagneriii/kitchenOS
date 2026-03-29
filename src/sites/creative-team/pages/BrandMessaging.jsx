@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import usePageMeta from '../../../hooks/usePageMeta'
 
 const voiceAttributes = [
   {
@@ -60,6 +61,8 @@ const itemVariants = {
 }
 
 export default function BrandMessaging() {
+  usePageMeta('Brand Messaging — Creative Team', 'Brand voice, tone guidelines, messaging pillars, and writing examples.')
+
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────── */}

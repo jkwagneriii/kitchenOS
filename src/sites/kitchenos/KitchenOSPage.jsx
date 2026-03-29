@@ -1,4 +1,5 @@
 import { useScrollRevealAll } from '../../hooks/useScrollReveal'
+import usePageMeta from '../../hooks/usePageMeta'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import SocialProof from './components/SocialProof'
@@ -16,6 +17,7 @@ import Footer from './components/Footer'
 
 export default function KitchenOSPage() {
   useScrollRevealAll()
+  usePageMeta('KitchenOS — Operational Intelligence for Modern Kitchens', 'Real-time kitchen operations platform — inventory tracking, smart scheduling, and workflow automation.')
 
   return (
     <div className="bg-[#DBD4C9] text-[#2A2A22] font-[Inter] min-h-screen">

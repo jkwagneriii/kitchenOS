@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import usePageMeta from '../hooks/usePageMeta'
 
 const sites = [
   {
@@ -18,6 +19,8 @@ const sites = [
 ]
 
 export default function HQLanding() {
+  usePageMeta('HQ — Site Portfolio', 'Product and brand sites by Jake Wagner — KitchenOS and Creative Team.')
+
   return (
     <div className="min-h-screen bg-[#F5F3EF] text-[#1a1a18] font-sans flex flex-col">
       {/* Header */}
