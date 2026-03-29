@@ -57,8 +57,12 @@ export default function Footer() {
           </div>
         ))}
 
-        {/* Empty closing cell */}
-        <div className="hidden lg:block lg:col-span-2 border-b border-white/10" />
+        {/* Poster-style typographic cell */}
+        <div className="hidden lg:flex lg:col-span-2 border-b border-white/10 p-4 items-stretch overflow-hidden">
+          <p className="font-sans font-black uppercase leading-[0.85] tracking-[-0.04em] text-white/[0.07] text-[3.5vw] flex items-center select-none">
+            Public Service Is Personal
+          </p>
+        </div>
       </div>
 
       {/* Bottom bar */}
