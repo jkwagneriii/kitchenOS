@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion'
-
-export default function AssetCard({ name, dimensions, fileType, thumbnailUrl, downloadUrl, solidColor, stagger = 0, onClick }) {
+export default function AssetCard({ name, dimensions, fileType, thumbnailUrl, downloadUrl, solidColor, onClick }) {
   return (
     <div
       className="group bg-surface hover:bg-accent transition-colors duration-300 cursor-pointer"

@@ -1,0 +1,3 @@
+# Internal brand portal — not intended for search indexing.
+User-agent: *
+Disallow: /

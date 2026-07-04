@@ -5,8 +5,10 @@ import WireframeGrid from '../../../components/ui/WireframeGrid'
 import ParallaxImage from '../../../components/ui/ParallaxImage'
 import ColorSwatch from '../../../components/ui/ColorSwatch'
 import TypeSpecimen from '../../../components/ui/TypeSpecimen'
-import { brandColors } from '../data/brandColors'
-import { brandTypography } from '../data/brandTypography'
+import Hero from '../../../components/ui/Hero'
+import SectionIntro from '../../../components/ui/SectionIntro'
+import CellGrid from '../../../components/ui/CellGrid'
+import { colors, typefaces } from '../../../design-system/tokens'
 
 const brandIcons = [
   {
@@ -92,25 +94,13 @@ export default function CoreBrandIdentity() {
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Left — accent block + landscape video */}
           <div className="lg:col-span-8 xl:col-span-9">
-            <div className="bg-accent flex flex-col justify-end px-8 md:px-12 lg:px-16 pb-16 pt-32 lg:pt-24 min-h-[70vh] lg:min-h-[80vh] relative">
-              <motion.h1
-                className="text-mega text-white mb-8 pb-[0.1em]"
-                initial={{ clipPath: 'inset(100% 0 -10% 0)' }}
-                animate={{ clipPath: 'inset(0 0 -10% 0)' }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              >
-                Creative<br />
-                Team<sup className="text-[0.3em] align-super tracking-normal">™</sup>
-              </motion.h1>
-              <motion.p
-                className="text-display text-white/70 max-w-xl"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-              >
-                Brand Identity Guidelines
-              </motion.p>
-            </div>
+            <Hero
+              bare
+              size="tall"
+              className="relative"
+              title={<>Creative<br />Team<sup className="text-[0.3em] align-super tracking-normal">™</sup></>}
+              subtitle="Brand Identity Guidelines"
+            />
 
             {/* Landscape video — painting close-up */}
             <motion.div
@@ -119,7 +109,7 @@ export default function CoreBrandIdentity() {
               animate={{ clipPath: 'inset(0 0% 0 0)' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             >
-              <ParallaxImage src="/horizontal1.webp" alt="Creative team hero landscape" className="grayscale-img" />
+              <ParallaxImage src="/horizontal1.webp" alt="Creative team hero landscape" className="grayscale-img" eager />
             </motion.div>
           </div>
 
@@ -156,7 +146,7 @@ export default function CoreBrandIdentity() {
                 animate={{ clipPath: 'inset(0 0% 0 0)' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
               >
-                <ParallaxImage src="/vertical.webp" alt="Portrait sidebar" className="grayscale-img" />
+                <ParallaxImage src="/vertical.webp" alt="Portrait sidebar" className="grayscale-img" eager />
               </motion.div>
             </div>
 
@@ -176,36 +166,20 @@ export default function CoreBrandIdentity() {
 
       {/* ── VISUAL LANGUAGE PHILOSOPHY ─────────────────────────── */}
       <section id="visual-language" className="border-t border-white/10">
-        <div className="grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-8 px-8 md:px-12 lg:px-16 py-section-y border-r border-white/10">
-            <h2 className="text-hero mb-8 animate-on-scroll">
-              Visual Language
-            </h2>
-            <p className="mono-upper text-muted max-w-xl animate-on-scroll stagger-1">
-              Our visual identity is rooted in Swiss grid design — a system of order, clarity, and purposeful restraint that lets content lead.
-            </p>
-          </div>
-          <div className="md:col-span-4 px-8 md:px-10 py-section-y flex items-end">
-            <p className="font-mono text-mono-sm uppercase tracking-widest text-faint animate-on-scroll stagger-2">
-              Swiss Grid Principles
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-bordered">
-          {[
+        <SectionIntro
+          title="Visual Language"
+          description="Our visual identity is rooted in Swiss grid design — a system of order, clarity, and purposeful restraint that lets content lead."
+          meta="Swiss Grid Principles"
+        />
+        <CellGrid
+          columns={4}
+          items={[
             { num: '01', title: 'Grid Structure', desc: 'Every layout is built on a precise modular grid. Content aligns to columns and baselines, creating visual rhythm and order.' },
             { num: '02', title: 'Typographic Hierarchy', desc: 'Type is the primary design element. Scale, weight, and spacing establish information hierarchy without decoration.' },
             { num: '03', title: 'Minimal Ornamentation', desc: 'No gratuitous effects. Every visual element serves a functional purpose — borders define structure, color signals meaning.' },
             { num: '04', title: 'Systematic Color', desc: 'A constrained palette applied with intent. Color is reserved for emphasis and interaction, never for decoration.' },
-          ].map((s, i) => (
-            <div key={s.num} className={`animate-on-scroll stagger-${i + 1} p-8 lg:p-10 cell-hover group`}>
-              <span className="font-mono text-[3rem] font-bold text-accent/30 group-hover:text-white leading-none block mb-4 transition-colors">{s.num}</span>
-              <h3 className="text-title text-white mb-3 group-hover:text-white transition-colors">{s.title}</h3>
-              <p className="font-mono text-mono-body uppercase text-white/60 group-hover:text-white/80">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+          ]}
+        />
       </section>
 
       {/* ── CINEMATIC DIVIDER — outer space (scroll-driven) ─── */}
@@ -223,9 +197,7 @@ export default function CoreBrandIdentity() {
 
       {/* ── LOGO & PHILOSOPHY ──────────────────────────────────── */}
       <section id="logo-philosophy" className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-section-y border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">Logo & Philosophy</h2>
-        </div>
+        <SectionIntro title="Logo & Philosophy" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Logo display */}
@@ -270,7 +242,7 @@ export default function CoreBrandIdentity() {
             <div className="px-8 md:px-10 py-8 border-t border-white/10">
               <h4 className="font-mono text-mono-sm uppercase tracking-widest text-faint mb-4 animate-on-scroll">Clear Space & Minimum Size</h4>
               <p className="font-mono text-mono-body uppercase text-white/60 animate-on-scroll stagger-1">
-                Maintain a minimum clear space equal to the height of the "C" in the mark on all sides. Minimum reproduction size: 24px digital, 8mm print.
+                Maintain a minimum clear space equal to the height of the &quot;C&quot; in the mark on all sides. Minimum reproduction size: 24px digital, 8mm print.
               </p>
             </div>
           </div>
@@ -279,15 +251,13 @@ export default function CoreBrandIdentity() {
 
       {/* ── BRAND COLORS ───────────────────────────────────────── */}
       <section id="brand-colors" className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-section-y border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">Brand Colors</h2>
-          <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-            A constrained palette built for dark interfaces. Color is used with intent — accent for action, neutrals for structure.
-          </p>
-        </div>
+        <SectionIntro
+          title="Brand Colors"
+          description="A constrained palette built for dark interfaces. Color is used with intent — accent for action, neutrals for structure."
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10">
-          {brandColors.map((color) => (
+          {colors.map((color) => (
             <div key={color.hex} className="bg-background p-6 lg:p-8">
               <ColorSwatch {...color} />
             </div>
@@ -297,15 +267,13 @@ export default function CoreBrandIdentity() {
 
       {/* ── BRAND TYPOGRAPHY ───────────────────────────────────── */}
       <section id="typography" className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-section-y border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">Typography</h2>
-          <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-            Two typefaces — one for content, one for system elements. DM Sans provides warmth and readability; DM Mono adds technical precision.
-          </p>
-        </div>
+        <SectionIntro
+          title="Typography"
+          description="Two typefaces — one for content, one for system elements. DM Sans provides warmth and readability; DM Mono adds technical precision."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 grid-bordered">
-          {brandTypography.map((type) => (
+          {typefaces.map((type) => (
             <TypeSpecimen key={type.family} {...type} />
           ))}
         </div>
@@ -313,12 +281,10 @@ export default function CoreBrandIdentity() {
 
       {/* ── BRAND ICONS ────────────────────────────────────────── */}
       <section id="brand-icons" className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-section-y border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">Brand Icons</h2>
-          <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-            A minimal icon set built from geometric primitives. Stroke-based, consistent weight, designed to pair with our typographic system.
-          </p>
-        </div>
+        <SectionIntro
+          title="Brand Icons"
+          description="A minimal icon set built from geometric primitives. Stroke-based, consistent weight, designed to pair with our typographic system."
+        />
 
         <motion.div
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 grid-bordered"

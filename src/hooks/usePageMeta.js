@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const DEFAULT_TITLE = 'HQ — Site Portfolio'
+const DEFAULT_TITLE = 'Creative Team™ — Brand System'
 
 export default function usePageMeta(title, description) {
   useEffect(() => {

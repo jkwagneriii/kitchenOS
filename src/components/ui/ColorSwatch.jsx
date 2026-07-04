@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from './Button'
 
 export default function ColorSwatch({ name, hex, rgb, usage }) {
   const [copied, setCopied] = useState(false)
@@ -22,12 +23,9 @@ export default function ColorSwatch({ name, hex, rgb, usage }) {
         {usage && <p className="text-white/60 mt-2">{usage}</p>}
       </div>
       <div className="mt-auto pt-4">
-        <button
-          onClick={handleCopy}
-          className="font-mono text-mono-sm uppercase tracking-widest px-4 py-2 border border-white/10 text-faint hover:border-accent hover:text-accent transition-colors duration-300 cursor-pointer"
-        >
+        <Button variant="ghost" size="sm" onClick={handleCopy}>
           {copied ? 'Copied!' : 'Copy Hex'}
-        </button>
+        </Button>
       </div>
     </div>
   )

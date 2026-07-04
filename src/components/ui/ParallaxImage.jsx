@@ -6,6 +6,7 @@ export default function ParallaxImage({
   alt = '',
   className = '',
   parallaxRange = [-40, 40],
+  eager = false,
 }) {
   const ref = useRef(null)
   const prefersReducedMotion = useReducedMotion()
@@ -20,7 +21,8 @@ export default function ParallaxImage({
       <motion.img
         src={src}
         alt={alt}
-        loading="lazy"
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
         decoding="async"
         className={`w-full h-full object-cover scale-[1.15] ${className}`}
         style={prefersReducedMotion ? {} : { y }}

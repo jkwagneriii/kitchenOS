@@ -1,54 +1,31 @@
+import {
+  tailwindColors,
+  fontFamilies,
+  tailwindFontSize,
+  tailwindSpacing,
+  layout,
+} from './src/design-system/tokens.js'
+
+/**
+ * Theme values are generated from src/design-system/tokens.js — the single
+ * source of truth shared with the design-system documentation pages.
+ * Edit tokens there, not here.
+ */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      /* ── COLOR SYSTEM ────────────────────────────────────── */
-      colors: {
-        background: {
-          DEFAULT: '#212121',
-        },
-        surface: {
-          DEFAULT: '#31414e',
-        },
-        accent: {
-          DEFAULT: '#4b3fff',
-        },
-        foreground: {
-          DEFAULT: '#ffffff',
-        },
-        muted: {
-          DEFAULT: '#dce6f4',
-        },
-        faint: {
-          DEFAULT: '#7a8ba0',
-        },
-      },
-      fontFamily: {
-        sans:  ['"DM Sans"', 'system-ui', 'sans-serif'],
-        mono:  ['"DM Mono"', 'ui-monospace', 'monospace'],
-        'ko-sans': ['Inter', 'system-ui', 'sans-serif'],
-        'ko-mono': ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-      },
-      fontSize: {
-        'mega':    ['clamp(4rem, 12vw, 12rem)',   { lineHeight: '0.9',   letterSpacing: '-0.06em', fontWeight: '900' }],
-        'hero':    ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '0.9',  letterSpacing: '-0.045em', fontWeight: '700' }],
-        'display': ['clamp(2rem, 3.5vw, 3rem)',   { lineHeight: '1.1',  letterSpacing: '-0.03em', fontWeight: '700' }],
-        'title':   ['clamp(1.25rem, 2vw, 1.75rem)',{ lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '600' }],
-        'body':    ['1rem',                         { lineHeight: '1.6',  letterSpacing: '-0.01em', fontWeight: '400' }],
-        'mono-body': ['0.6875rem',                  { lineHeight: '1.6',  letterSpacing: '0.04em', fontWeight: '400' }],
-        'mono-sm': ['0.625rem',                     { lineHeight: '1.5',  letterSpacing: '0.05em', fontWeight: '400' }],
-        'label':   ['0.6875rem',                    { lineHeight: '1.33', letterSpacing: '0.08em', fontWeight: '500' }],
-      },
-      spacing: {
-        'section-y': 'clamp(4rem, 8vw, 8rem)',
-        'section-x': 'clamp(1.25rem, 4vw, 4rem)',
-      },
+      colors: tailwindColors,
+      fontFamily: fontFamilies,
+      fontSize: tailwindFontSize,
+      spacing: tailwindSpacing,
       maxWidth: {
-        container: '1440px',
+        container: layout.maxWidth,
       },
       borderRadius: {
-        DEFAULT: '0px',
+        DEFAULT: layout.borderRadius,
         pill: '9999px',
       },
       keyframes: {
@@ -64,10 +41,15 @@ export default {
           '0%':   { transform: 'translateY(10px)' },
           '100%': { transform: 'translateY(0)' },
         },
+        'marquee': {
+          '0%':   { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-up':  'fade-up 0.8s cubic-bezier(0.16,1,0.3,1) both',
         'clip-up':  'clip-up 0.8s cubic-bezier(0.16,1,0.3,1) both',
+        'marquee':  'marquee 30s linear infinite',
       },
     },
   },

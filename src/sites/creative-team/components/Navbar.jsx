@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const links = [
-  { label: 'Brand Identity', to: '/creative-team' },
-  { label: 'Messaging', to: '/creative-team/messaging' },
-  { label: 'Media Assets', to: '/creative-team/media' },
-  { label: 'Creative Request', to: '/creative-team/request' },
+  { label: 'Brand Identity', to: '/' },
+  { label: 'Messaging', to: '/messaging' },
+  { label: 'Media Assets', to: '/media' },
+  { label: 'Creative Request', to: '/request' },
+  { label: 'Design System', to: '/system' },
+  { label: 'The Lab', to: '/lab' },
 ]
 
 export default function Navbar() {
@@ -28,13 +30,9 @@ export default function Navbar() {
       {/* Fixed nav bar — full width */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled && !open ? 'bg-[#212121]/85 backdrop-blur-md' : ''}`}>
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-16 pt-6 pb-4">
-          {/* Back to HQ */}
           <div className="flex items-center gap-4">
-            <Link to="/" className={`font-mono text-mono-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${scrolled && !open ? 'text-white/90' : 'text-white'}`}>
-              &larr; HQ
-            </Link>
             {/* Logo */}
-            <NavLink to="/creative-team" className="flex items-center gap-2 group">
+            <NavLink to="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 bg-accent flex items-center justify-center">
                 <span className="font-mono text-[10px] font-bold text-white leading-none tracking-tight">CT</span>
               </div>
@@ -63,7 +61,7 @@ export default function Navbar() {
         <div className="px-8 md:px-12 lg:px-16 w-full">
           <div className="flex flex-col gap-4">
             {links.map((l, i) => (
-              <NavLink key={l.label} to={l.to}
+              <NavLink key={l.label} to={l.to} end
                  className={({ isActive }) =>
                    `text-hero transition-colors duration-300 cursor-pointer tracking-tighter ${isActive ? 'text-accent' : 'text-white hover:text-accent'}`
                  }

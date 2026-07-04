@@ -5,15 +5,17 @@ const columns = [
   {
     title: 'Brand',
     links: [
-      { label: 'Brand Identity', to: '/creative-team' },
-      { label: 'Messaging', to: '/creative-team/messaging' },
-      { label: 'Media Assets', to: '/creative-team/media' },
+      { label: 'Brand Identity', to: '/' },
+      { label: 'Messaging', to: '/messaging' },
+      { label: 'Media Assets', to: '/media' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Creative Request', to: '/creative-team/request' },
+      { label: 'Creative Request', to: '/request' },
+      { label: 'Design System', to: '/system' },
+      { label: 'The Lab', to: '/lab' },
     ],
   },
 ]
@@ -42,7 +44,7 @@ export default function Footer() {
         </div>
 
         {/* Nav columns */}
-        {columns.map((col, i) => (
+        {columns.map((col) => (
           <div key={col.title} className={`lg:col-span-2 px-8 py-12 border-r border-white/10 border-b border-white/10`}>
             <p className="font-mono text-mono-sm uppercase tracking-widest mb-5">{col.title}</p>
             <ul className="space-y-3">

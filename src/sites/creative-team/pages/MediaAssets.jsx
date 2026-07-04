@@ -2,6 +2,9 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import usePageMeta from '../../../hooks/usePageMeta'
 import { motion, AnimatePresence } from 'framer-motion'
 import AssetCard from '../../../components/ui/AssetCard'
+import Hero from '../../../components/ui/Hero'
+import SectionIntro from '../../../components/ui/SectionIntro'
+import Tag from '../../../components/ui/Tag'
 import { imageAssets, zoomAssets, linkedinAssets, mediaAssets } from '../data/mediaAssets'
 
 const PAGE_SIZE = 9
@@ -98,38 +101,18 @@ function ImageGallery({ onOpenLightbox }) {
 
   return (
     <section className="border-t border-white/10">
-      <div className="px-8 md:px-12 lg:px-16 py-12 border-b border-white/10">
-        <h2 className="text-hero tracking-tighter animate-on-scroll">Images</h2>
-        <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-          Approved brand photography and imagery for use in presentations, marketing, and internal communications.
-        </p>
-      </div>
+      <SectionIntro
+        title="Images"
+        description="Approved brand photography and imagery for use in presentations, marketing, and internal communications."
+        padding="md"
+      />
 
       {/* Filter bar */}
       <div className="px-8 md:px-12 lg:px-16 py-4 border-b border-white/10 flex flex-wrap items-center gap-2">
         <span className="font-mono text-[10px] uppercase tracking-widest text-white/40 mr-2">Filter</span>
-        <button
-          onClick={clearFilters}
-          className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest border transition-colors duration-200 cursor-pointer ${
-            activeFilters.length === 0
-              ? 'border-accent bg-accent text-white'
-              : 'border-white/15 text-white/50 hover:border-white/30 hover:text-white'
-          }`}
-        >
-          All ({imageAssets.length})
-        </button>
+        <Tag label={`All (${imageAssets.length})`} active={activeFilters.length === 0} onClick={clearFilters} />
         {allTags.map((tag) => (
-          <button
-            key={tag}
-            onClick={() => toggleFilter(tag)}
-            className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest border transition-colors duration-200 cursor-pointer ${
-              activeFilters.includes(tag)
-                ? 'border-accent bg-accent text-white'
-                : 'border-white/15 text-white/50 hover:border-white/30 hover:text-white'
-            }`}
-          >
-            {tag}
-          </button>
+          <Tag key={tag} label={tag} active={activeFilters.includes(tag)} onClick={() => toggleFilter(tag)} />
         ))}
       </div>
 
@@ -152,7 +135,7 @@ function ImageGallery({ onOpenLightbox }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
         {pageAssets.map((asset, i) => (
           <div key={`${asset.name}-${page}-${i}`} className="bg-background">
-            <AssetCard {...asset} stagger={(i % 3) + 1} onClick={() => onOpenLightbox(asset)} />
+            <AssetCard {...asset} onClick={() => onOpenLightbox(asset)} />
           </div>
         ))}
       </div>
@@ -211,43 +194,25 @@ export default function MediaAssets() {
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="relative border-b border-white/10">
-        <div className="bg-accent flex flex-col justify-end px-8 md:px-12 lg:px-16 pb-16 pt-32 lg:pt-24 min-h-[50vh] lg:min-h-[60vh]">
-          <motion.h1
-            className="text-mega text-white mb-8 pb-[0.1em]"
-            initial={{ clipPath: 'inset(100% 0 -10% 0)' }}
-            animate={{ clipPath: 'inset(0 0 -10% 0)' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          >
-            Media<br />
-            Assets
-          </motion.h1>
-          <motion.p
-            className="text-display text-white/70 max-w-xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-          >
-            Approved photography, backgrounds, and brand media.
-          </motion.p>
-        </div>
-      </section>
+      <Hero
+        title={<>Media<br />Assets</>}
+        subtitle="Approved photography, backgrounds, and brand media."
+      />
 
       {/* ── IMAGES — paginated + filtered ──────────────────────── */}
       <ImageGallery onOpenLightbox={openLightbox} />
 
       {/* ── ZOOM BACKGROUNDS ───────────────────────────────────── */}
       <section className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-12 border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">Zoom Backgrounds</h2>
-          <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-            Branded virtual backgrounds for video calls. Use these to maintain a consistent brand presence in meetings.
-          </p>
-        </div>
+        <SectionIntro
+          title="Zoom Backgrounds"
+          description="Branded virtual backgrounds for video calls. Use these to maintain a consistent brand presence in meetings."
+          padding="md"
+        />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/10">
-          {zoomAssets.map((asset, i) => (
+          {zoomAssets.map((asset) => (
             <div key={asset.name} className="bg-background">
-              <AssetCard {...asset} stagger={(i % 4) + 1} onClick={() => openLightbox(asset)} />
+              <AssetCard {...asset} onClick={() => openLightbox(asset)} />
             </div>
           ))}
         </div>
@@ -255,16 +220,15 @@ export default function MediaAssets() {
 
       {/* ── LINKEDIN BACKGROUNDS ───────────────────────────────── */}
       <section className="border-t border-white/10">
-        <div className="px-8 md:px-12 lg:px-16 py-12 border-b border-white/10">
-          <h2 className="text-hero tracking-tighter animate-on-scroll">LinkedIn Backgrounds</h2>
-          <p className="mono-upper text-muted max-w-xl mt-4 animate-on-scroll stagger-1">
-            Profile banner images for LinkedIn. Use these to represent Creative Team™ on your professional profile.
-          </p>
-        </div>
+        <SectionIntro
+          title="LinkedIn Backgrounds"
+          description="Profile banner images for LinkedIn. Use these to represent Creative Team™ on your professional profile."
+          padding="md"
+        />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/10">
-          {linkedinAssets.map((asset, i) => (
+          {linkedinAssets.map((asset) => (
             <div key={asset.name} className="bg-background">
-              <AssetCard {...asset} stagger={(i % 4) + 1} onClick={() => openLightbox(asset)} />
+              <AssetCard {...asset} onClick={() => openLightbox(asset)} />
             </div>
           ))}
         </div>

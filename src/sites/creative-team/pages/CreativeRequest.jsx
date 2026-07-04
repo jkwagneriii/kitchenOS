@@ -2,6 +2,9 @@ import { useState } from 'react'
 import usePageMeta from '../../../hooks/usePageMeta'
 import { motion } from 'framer-motion'
 import FormField from '../../../components/ui/FormField'
+import Hero from '../../../components/ui/Hero'
+import Button from '../../../components/ui/Button'
+import StepList from '../../../components/ui/StepList'
 
 const initialForm = {
   name: '',
@@ -33,27 +36,10 @@ export default function CreativeRequest() {
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="relative border-b border-white/10">
-        <div className="bg-accent flex flex-col justify-end px-8 md:px-12 lg:px-16 pb-16 pt-32 lg:pt-24 min-h-[50vh] lg:min-h-[60vh]">
-          <motion.h1
-            className="text-mega text-white mb-8 pb-[0.1em]"
-            initial={{ clipPath: 'inset(100% 0 -10% 0)' }}
-            animate={{ clipPath: 'inset(0 0 -10% 0)' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          >
-            Creative<br />
-            Request
-          </motion.h1>
-          <motion.p
-            className="text-display text-white/70 max-w-xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-          >
-            Submit a request to the Creative Team™.
-          </motion.p>
-        </div>
-      </section>
+      <Hero
+        title={<>Creative<br />Request</>}
+        subtitle="Submit a request to the Creative Team™."
+      />
 
       {/* ── FORM SECTION ───────────────────────────────────────── */}
       <section className="border-t border-white/10">
@@ -71,12 +57,9 @@ export default function CreativeRequest() {
                   <p className="mono-upper text-muted mb-6">
                     Your creative request has been received. The team will review it and get back to you within 1-2 business days.
                   </p>
-                  <button
-                    onClick={() => { setSubmitted(false); setForm(initialForm) }}
-                    className="px-8 py-4 border-2 border-accent text-accent font-mono text-mono-body uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 cursor-pointer"
-                  >
+                  <Button variant="outline" onClick={() => { setSubmitted(false); setForm(initialForm) }}>
                     Submit Another
-                  </button>
+                  </Button>
                 </div>
               </motion.div>
             ) : (
@@ -131,12 +114,9 @@ export default function CreativeRequest() {
                 <FormField label="Reference Links / Files" name="references" placeholder="URLs, Google Drive links, or file names" value={form.references} onChange={handleChange} />
                 <FormField label="Additional Notes" name="notes" type="textarea" rows={3} placeholder="Anything else the creative team should know..." value={form.notes} onChange={handleChange} />
 
-                <button
-                  type="submit"
-                  className="mt-4 px-8 py-4 bg-accent text-white font-mono text-mono-body uppercase tracking-widest font-bold hover:bg-accent/80 transition-all duration-300 cursor-pointer"
-                >
+                <Button type="submit" className="mt-4">
                   Submit Request
-                </button>
+                </Button>
               </form>
             )}
           </div>
@@ -149,22 +129,14 @@ export default function CreativeRequest() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             >
               <h2 className="text-title text-white mb-6">How It Works</h2>
-              <div className="space-y-6">
-                {[
+              <StepList
+                steps={[
                   { num: '01', title: 'Submit', desc: 'Fill out the form with your project details and requirements.' },
                   { num: '02', title: 'Review', desc: 'The creative team reviews your request and may reach out for clarification.' },
                   { num: '03', title: 'Create', desc: 'We produce the deliverables based on brand guidelines and your specifications.' },
                   { num: '04', title: 'Deliver', desc: 'Assets are delivered to you for review, with revisions as needed.' },
-                ].map((step) => (
-                  <div key={step.num} className="flex gap-4">
-                    <span className="font-mono text-mono-sm text-accent/50 flex-shrink-0 pt-1">{step.num}</span>
-                    <div>
-                      <h3 className="text-title text-white mb-1">{step.title}</h3>
-                      <p className="font-mono text-mono-body uppercase text-white/60">{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                ]}
+              />
 
               <div className="border-t border-white/10 mt-8 pt-8">
                 <h4 className="font-mono text-mono-sm uppercase tracking-widest text-faint mb-3">Turnaround Times</h4>

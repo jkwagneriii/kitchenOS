@@ -86,7 +86,7 @@ export default function WireframeGrid({ showImages = true }) {
   }, []);
 
   const drawAnimLine = useCallback(
-    (ctx, x1, y1, x2, y2, progress, alpha) => {
+    (ctx, x1, y1, x2, y2, progress) => {
       let headP, tailP;
       if (progress <= 1) {
         headP = smoothstep(progress);
@@ -204,7 +204,7 @@ export default function WireframeGrid({ showImages = true }) {
 
       rafRef.current = requestAnimationFrame(draw);
     },
-    [computeGrid, drawAnimLine, r, g, b]
+    [computeGrid, drawAnimLine, r, g, b, showImages]
   );
 
   useEffect(() => {
