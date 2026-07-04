@@ -16,6 +16,17 @@ import Callout from '../components/ui/Callout'
 import ProgressMeter from '../components/ui/ProgressMeter'
 import StatusBadge from '../components/ui/StatusBadge'
 import DataTable from '../components/ui/DataTable'
+import SplitHero from '../components/ui/SplitHero'
+import KineticHero from '../components/ui/KineticHero'
+import SpotlightGridHero from '../components/ui/SpotlightGridHero'
+import HoverRevealList from '../components/ui/HoverRevealList'
+import ScrambleText from '../components/ui/ScrambleText'
+import MagneticButton from '../components/ui/MagneticButton'
+import DragCarousel from '../components/ui/DragCarousel'
+import StickyStack from '../components/ui/StickyStack'
+import ScrollProgress from '../components/ui/ScrollProgress'
+import ImageCompare from '../components/ui/ImageCompare'
+import Button from '../components/ui/Button'
 import ModalDemo from './demos/ModalDemo'
 
 export const experimentRegistry = [
@@ -203,6 +214,190 @@ export const experimentRegistry = [
           ]}
         />
       </div>
+    ),
+  },
+
+  /* ── HERO CONCEPTS — full-bleed ──────────────────────────────── */
+  {
+    name: 'SplitHero',
+    path: 'src/components/ui/SplitHero.jsx',
+    description: 'Full-bleed diptych — accent type panel against an image panel. Hovering a side expands it while the image sweeps from greyscale to color.',
+    usage: 'Campaign landings and section openers where copy and imagery deserve equal billing.',
+    fullBleed: true,
+    props: [
+      { name: 'left', type: '{ title, subtitle }', def: '—' },
+      { name: 'right', type: '{ image, alt, caption }', def: '—' },
+    ],
+    demo: (
+      <SplitHero
+        left={{ title: <>Bold by<br />Default</>, subtitle: 'Hover either panel — the layout answers.' }}
+        right={{ image: '/horizontal2.webp', alt: 'Campaign imagery', caption: 'Hover — Color Reveal' }}
+      />
+    ),
+  },
+  {
+    name: 'KineticHero',
+    path: 'src/components/ui/KineticHero.jsx',
+    description: 'Scroll-driven pinned hero — oversized type tracks horizontally with scroll while the backdrop settles and a mono counter reads out progress.',
+    usage: 'High-impact page openers with room to breathe; height is a multiple of the viewport.',
+    fullBleed: true,
+    props: [
+      { name: 'title / meta', type: 'node / string', def: '—' },
+      { name: 'image / alt', type: 'string', def: '—' },
+      { name: 'screens', type: 'number (viewports)', def: '2' },
+    ],
+    demo: (
+      <KineticHero
+        title="Motion With Intent —"
+        meta="Kinetic Hero / Scroll Sequence"
+        image="/horizontal1.webp"
+        alt="Kinetic hero backdrop"
+      />
+    ),
+  },
+  {
+    name: 'SpotlightGridHero',
+    path: 'src/components/ui/SpotlightGridHero.jsx',
+    description: 'Cursor-spotlight hero — the Swiss grid and an accent glow exist only around the pointer, with a live coordinate readout in the corner.',
+    usage: 'Interactive openers for system and lab surfaces — the grid itself becomes the artwork.',
+    fullBleed: true,
+    props: [
+      { name: 'title / subtitle', type: 'node', def: '—' },
+      { name: 'meta', type: 'string', def: "'Interactive Field'" },
+    ],
+    demo: (
+      <SpotlightGridHero
+        title={<>The Grid<br />Answers</>}
+        subtitle="Move the cursor — structure follows attention."
+        meta="Spotlight Field 01"
+      />
+    ),
+  },
+
+  /* ── INTERACTIVE PIECES ──────────────────────────────────────── */
+  {
+    name: 'HoverRevealList',
+    path: 'src/components/ui/HoverRevealList.jsx',
+    description: 'Editorial index — hovering a row floats its image preview at the cursor. Preview hides on touch layouts.',
+    usage: 'Project indexes, case-study lists, campaign archives.',
+    props: [
+      { name: 'items', type: '[{ label, meta, image }]', def: '—' },
+    ],
+    demo: (
+      <HoverRevealList
+        items={[
+          { label: 'Terminal Wayfinding', meta: 'Environmental', image: '/image-cycle/Low-res-104.webp' },
+          { label: 'Night Market Series', meta: 'Photography', image: '/image-cycle/Low-res-13.webp' },
+          { label: 'Transit Campaign', meta: 'Out-of-Home', image: '/image-cycle/Low-res-151.webp' },
+          { label: 'Annual Report', meta: 'Editorial', image: '/image-cycle/Low-res-168.webp' },
+        ]}
+      />
+    ),
+  },
+  {
+    name: 'ScrambleText',
+    path: 'src/components/ui/ScrambleText.jsx',
+    description: 'Heading that decodes through random glyphs on hover or focus — terminal-flavored emphasis.',
+    usage: 'Single display words or short phrases: section titles, nav moments, stat labels. One per view.',
+    props: [
+      { name: 'text', type: 'string', def: '—' },
+      { name: 'className', type: 'string', def: '—' },
+    ],
+    demo: (
+      <div className="p-8 lg:p-12">
+        <ScrambleText text="HOVER TO DECODE" className="text-display text-white" />
+        <p className="font-mono text-mono-sm uppercase tracking-widest text-faint mt-4">Hover or focus the heading</p>
+      </div>
+    ),
+  },
+  {
+    name: 'MagneticButton',
+    path: 'src/components/ui/MagneticButton.jsx',
+    description: 'Magnetic wrapper — the child is pulled toward the cursor and springs back on leave. Inert under reduced motion.',
+    usage: 'Hero CTAs and logo marks. Wrap exactly one element; keep strength subtle.',
+    props: [
+      { name: 'children', type: 'node', def: '—' },
+      { name: 'strength', type: 'number (0–1)', def: '0.35' },
+    ],
+    demo: (
+      <div className="p-12 lg:p-16 flex items-center justify-center">
+        <MagneticButton>
+          <Button>Magnetic CTA</Button>
+        </MagneticButton>
+      </div>
+    ),
+  },
+  {
+    name: 'DragCarousel',
+    path: 'src/components/ui/DragCarousel.jsx',
+    description: 'Draggable horizontal strip of captioned images — flick physics, greyscale-to-color on hover.',
+    usage: 'Photo essays and asset showcases where browsing beats pagination.',
+    props: [
+      { name: 'items', type: '[{ image, label, meta }]', def: '—' },
+    ],
+    demo: (
+      <DragCarousel
+        items={[
+          { label: 'Concourse', meta: 'CT-104', image: '/image-cycle/Low-res-104.webp' },
+          { label: 'Signal', meta: 'CT-109', image: '/image-cycle/Low-res-109.webp' },
+          { label: 'Interval', meta: 'CT-122', image: '/image-cycle/Low-res-122.webp' },
+          { label: 'Meridian', meta: 'CT-151', image: '/image-cycle/Low-res-151.webp' },
+          { label: 'Aperture', meta: 'CT-158', image: '/image-cycle/Low-res-158.webp' },
+          { label: 'Traverse', meta: 'CT-168', image: '/image-cycle/Low-res-168.webp' },
+        ]}
+      />
+    ),
+  },
+  {
+    name: 'StickyStack',
+    path: 'src/components/ui/StickyStack.jsx',
+    description: 'Scroll-stacking cards — each card pins beneath the last with a stepped offset, building a pile as you scroll.',
+    usage: 'Sequential narratives: process steps, principles, year-in-review beats.',
+    props: [
+      { name: 'items', type: '[{ num, title, desc }]', def: '—' },
+      { name: 'topOffset', type: 'number (px)', def: '96' },
+    ],
+    demo: (
+      <div className="p-8 lg:p-10">
+        <StickyStack
+          items={[
+            { num: '01', title: 'Structure First', desc: 'The grid is decided before a single element is placed. Layout is a system, not a suggestion.' },
+            { num: '02', title: 'Type Leads', desc: 'Hierarchy comes from scale and weight. Decoration is what type makes unnecessary.' },
+            { num: '03', title: 'Color Signals', desc: 'One accent, spent deliberately. When everything is purple, nothing is.' },
+          ]}
+        />
+      </div>
+    ),
+  },
+  {
+    name: 'ScrollProgress',
+    path: 'src/components/ui/ScrollProgress.jsx',
+    description: 'Fixed accent hairline along the top edge that fills with page scroll — mounted live on this page.',
+    usage: 'Long documentation and editorial pages. Mount once per page.',
+    props: [
+      { name: 'className', type: 'string', def: '—' },
+    ],
+    demo: (
+      <div className="p-8 lg:p-10">
+        <p className="mono-upper text-muted max-w-xl">
+          Look at the very top of this viewport — the accent line is this component, tracking your position on the page.
+        </p>
+      </div>
+    ),
+  },
+  {
+    name: 'ImageCompare',
+    path: 'src/components/ui/ImageCompare.jsx',
+    description: 'Before/after sweep — drag the accent divider (keyboard-accessible via the underlying range input) between two treatments.',
+    usage: 'Retouch approvals, art-direction reviews, brand treatment vs. original.',
+    props: [
+      { name: 'before / after', type: '{ image, label }', def: '—' },
+    ],
+    demo: (
+      <ImageCompare
+        before={{ image: '/horizontal2.webp', label: 'Greyscale Treatment' }}
+        after={{ image: '/horizontal2.webp', label: 'Original' }}
+      />
     ),
   },
 ]
